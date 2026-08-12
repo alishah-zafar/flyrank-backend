@@ -35,5 +35,15 @@ def get_tasks():
     conn.close()
     return jsonify([dict(task) for task in tasks])
 
+@app.route("/tasks/<int:id>")
+def get_task(id):
+    conn = get_db()
+    task = conn.execute(
+        "SELECT * FROM tasks WHERE id = ?", (id,)
+    ).fetchone()
+    conn.close()
+    if task is None:
+        return jsonify({"error": "Task not found"}), 404
+    return jsonify(dict(task))
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
