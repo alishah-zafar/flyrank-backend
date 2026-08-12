@@ -15,7 +15,7 @@ A simple Flask REST API for managing tasks, backed by SQLite.
 
 ## Database screenshot
 
-(<Screenshot 2026-08-12 162514.png>)
+![Database screenshot](Screenshot%202026-08-12%20162514.png)
 
 ## Example query
 
